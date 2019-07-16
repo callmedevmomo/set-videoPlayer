@@ -1,3 +1,85 @@
+@import "./reset.css";
+
 body {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  height: 100%;
+}
+.videoPlayer {
+  position: relative;
+}
+.videoPlayer .videoPlayer__controls:hover {
+  opacity: 1;
+}
+
+video {
+  width: 100%;
+  max-width: 100%;
+}
+
+.videoPlayer .videoPlayer__controls {
+  opacity: 0;
+  transition: opacity 0.4s linear;
+  color: white;
+  position: absolute;
+  z-index: 3;
+  bottom: 15px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  padding-top: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.videoPlayer .hide {
+  pointer-events: none;
+  cursor: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+.videoPlayer__controls .videoPlayer__column:first {
+  display: flex;
+  align-items: center;
+}
+#jsVolumeBtn {
+  margin-right: 10px;
+}
+
+.videoPlayer__column .videoPlayer__volume {
+  position: absolute;
+  padding: 0;
+  opacity: 1;
+  top: -60px;
+  left: -30px;
+  transform: rotate(-90deg);
+  z-index: 4;
+  width: 80px;
+}
+input {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+input::-webkit-slider-runnable-track {
+  background-color: gray;
+  height: 5px;
+}
+
+input::-webkit-slider-thumb {
+  all: unset;
+  background-color: white;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: relative;
+  top: -5px;
+}
+
+.videoPlayer__controls .videoPlayer__column:last-child {
+  justify-self: end;
+}
+.videoPlayer__controls .videoPlayer__column:nth-child(2) {
+  justify-self: center;
+}
+i {
+  font-size: 20px;
+  cursor: pointer;
 }
